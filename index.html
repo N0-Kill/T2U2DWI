@@ -13,107 +13,221 @@
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f4f7f6;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        /* Navegación */
-        header {
-            padding: 20px 40px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-weight: bold;
-            font-size: 24px;
-            color: #2c3e50;
-        }
-
-        nav a {
-            text-decoration: none;
-            color: #666;
-            margin-left: 20px;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #2c3e50;
-        }
-
-        /* Contenido Principal */
-        main {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 20px;
-        }
-
-        h1 {
-            font-size: 48px;
-            margin-bottom: 20px;
-            color: #2c3e50;
-        }
-
-        p {
-            font-size: 18px;
-            color: #7f8c8d;
-            max-width: 600px;
-            margin-bottom: 30px;
+            font-family: 'Inter', system-ui, sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
             line-height: 1.6;
         }
 
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: #3498db;
-            color: white;
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Navbar */
+        nav {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 800;
+            color: var(--primary);
             text-decoration: none;
-            border-radius: 25px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        /* Sección Hero (Principal) */
+        .hero {
+            padding: 80px 0;
+            display: flex;
+            align-items: center;
+            min-height: 70vh;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* Adaptabilidad para móviles en la sección hero */
+        @media (max-width: 768px) {
+            .hero-grid {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            .hero-image {
+                order: -1; /* Mueve la imagen arriba en móviles */
+            }
+        }
+
+        .hero-text h1 {
+            font-size: 42px;
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 14px 28px;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(108, 92, 231, 0.3);
+            transition: transform 0.2s, background 0.3s;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        .hero-image {
+            background: linear-gradient(135deg, #a29bfe, var(--primary));
+            height: 300px;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
             font-weight: bold;
-            transition: background 0.3s;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        .btn:hover {
-            background-color: #2980b9;
+        /* Sección de Características (Cards) */
+        .features {
+            padding: 60px 0;
+            background-color: white;
         }
 
-        /* Pie de página */
-        footer {
+        .features h2 {
             text-align: center;
-            padding: 20px;
-            font-size: 14px;
-            color: #95a5a6;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .grid-features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .card {
+            background: var(--light);
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #edf2f7;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .card h3 {
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 30px;
+            margin-top: 40px;
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo">MiMarca</div>
-        <nav>
-            <a href="#">Inicio</a>
-            <a href="#">Proyectos</a>
-            <a href="#">Contacto</a>
-        </nav>
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo">SaaSify</a>
+            <ul class="nav-links">
+                <li><a href="#">Funciones</a></li>
+                <li><a href="#">Precios</a></li>
+                <li><a href="#">Soporte</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container hero-grid">
+            <div class="hero-text">
+                <h1>Lleva tu negocio al siguiente nivel</h1>
+                <p>Una plataforma moderna construida para ayudarte a gestionar, escalar y automatizar tus procesos diarios sin dolores de cabeza.</p>
+                <a href="#" class="btn-primary">Prueba Gratis 14 días</a>
+            </div>
+            <div class="hero-image">
+                [ Espacio para Imagen / Ilustración ]
+            </div>
+        </div>
     </header>
 
-    <main>
-        <h1>Menos es más.</h1>
-        <p>Esta es una estructura limpia y elegante. Ideal para proyectos que necesitan un impacto visual rápido sin saturar al usuario.</p>
-        <a href="#" class="btn">Empezar ahora</a>
-    </main>
+    <section class="features">
+        <div class="container">
+            <h2>¿Por qué elegirnos?</h2>
+            <div class="grid-features">
+                <div class="card">
+                    <h3>Alta Velocidad</h3>
+                    <p>Optimizado al milisegundo para garantizar que tus usuarios no esperen un solo segundo.</p>
+                </div>
+                <div class="card">
+                    <h3>Seguridad Total</h3>
+                    <p>Cifrado de extremo a extremo para mantener tus datos y los de tus clientes a salvo.</p>
+                </div>
+                <div class="card">
+                    <h3>Soporte 24/7</h3>
+                    <p>Un equipo de humanos reales listos para ayudarte en cualquier momento del día.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 MiMarca. Hecho con simplicidad.</p>
+        <div class="container">
+            <p>&copy; 2026 SaaSify. Todos los derechos reservados.</p>
+        </div>
     </footer>
 
 </body>
